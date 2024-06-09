@@ -13,7 +13,7 @@ pipeline {
                  script{
                 
                        git branch: 'main', 
-                         url: 'https://github.com/tommyjcxie/jenkins-pipeline2'
+                         url: 'https://github.com/tommyjcxie/jenkins-pipeline4'
                        
                     }
                 }
@@ -41,26 +41,6 @@ pipeline {
             steps {
                 // Apply the plan immediately
                 sh 'terraform apply -input=false tfplan'
-            }
-        }
-
-
-        stage('Setup Ansible Inventory') {
-            steps {
-                script {
-                    writeFile file: 'inventory', text: '''
-                    [web]
-                    ec2-instance ansible_host=13.58.73.5 ansible_user=ec2-user ansible_ssh_private_key_file=${SSH_KEY}
-                    '''
-                }
-            }
-        }
-
-        stage('Run Ansible Playbook') {
-            steps {
-                 withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {
-                    sh 'ansible-playbook -i inventory install_wordpress.yml'
-                }
             }
         }
         
