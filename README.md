@@ -1,2 +1,2 @@
-# jenkins-pipeline4
-This pipeline creates a highly available, load balanced environment based off of the instance created in jenkins-pipeline2
+- This is just a sample code repositoy with a working jenkins pipeline to install wordpress on an ec2 instance.
+- Needs to be refactored to use proper file structure for both terraform and ansible (ie: have different files for inventory, terraform variables, terraform outputs, data, etc.)
