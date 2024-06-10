@@ -118,7 +118,7 @@ resource "aws_lb_listener" "http" {
 
 # Create a Launch Template
 resource "aws_launch_template" "wordpress_lt" {
-  name_prefix   = "wordpress-"
+  name_prefix   = "wordpress-" # create a unique name based on prefix in case we add more launch templates later
   image_id      = "ami-05901cf722e806632" # Custom Wordpress AMI
   instance_type = "t2.micro"
   key_name      = "ansible-kp"
